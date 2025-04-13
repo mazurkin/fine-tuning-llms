@@ -1,0 +1,81 @@
+[tool.poetry]
+name = "pytorch-environment"
+version = "0.1.0"
+description = "pytorch environment"
+authors = ["Nick Mazurkin <mazurkin@gmail.com>"]
+readme = "README.md"
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu124"
+priority = "explicit"
+
+[tool.poetry.dependencies]
+python = "3.10.16"
+
+[tool.poetry.group.util.dependencies]
+tqdm = "4.66.3"
+tenacity = "8.2.2"
+
+[tool.poetry.group.jupyter.dependencies]
+jupyterlab = "4.3.5"
+notebook = "7.3.2"
+nbconvert = "7.16.6"
+ipywidgets = "8.1.5"
+
+[tool.poetry.group.data.dependencies]
+polars = "1.17.1"
+pandas = "2.2.2"
+
+[tool.poetry.group.calculation.dependencies]
+numpy = "1.26.4"
+scipy = "1.13.1"
+statsmodels = "0.14.4"
+shapely = "2.0.6"
+
+[tool.poetry.group.nlp.dependencies]
+nltk = "3.9.1"
+gensim = "4.3.3"
+
+[tool.poetry.group.ml.dependencies]
+scikit-learn = "1.6.1"
+
+[tool.poetry.group.plot.dependencies]
+matplotlib = "3.8.4"
+plotly = "5.24.1"
+seaborn = "0.13.2"
+missingno = "0.5.2"
+graphviz = "0.20.3"
+
+[tool.poetry.group.pytorch.dependencies]
+torch = { version = "2.5.1+cu124", source="pytorch"}
+torchaudio = { version = "2.5.1+cu124", source="pytorch"}
+torchdata = { version = "0.7.1", source="pytorch"}
+
+[tool.poetry.group.pytorch-utils.dependencies]
+torchviz = "0.0.3"
+lightning = "2.5.1"
+
+[tool.poetry.group.book.dependencies]
+transformers = "4.46.2"
+peft = "0.13.2"
+huggingface-hub = "0.26.2"
+accelerate = "1.1.1"
+safetensors = "0.4.5"
+trl = "0.12.1"
+bitsandbytes = "0.44.1"
+datasets = "3.1.0"
+ollama = "0.4.0"
+unsloth = "2024.11.9"
+xformers = "0.0.28.post3"
+gguf = "0.10.0"
+
+[tool.poetry.group.tensorboard.dependencies]
+tensorboard = "2.17.0"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "7.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
