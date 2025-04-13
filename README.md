@@ -3,7 +3,7 @@
 https://github.com/dvgodoy/FineTuningLLMs/tree/main
 
 ```shell
-git clone --recurse-submodules -j8 git://github.com/mazurkin/fine-tuning-llms.git
+git clone --recurse-submodules -j8 git@github.com:mazurkin/fine-tuning-llms.git
 ```
 
 ```shell
