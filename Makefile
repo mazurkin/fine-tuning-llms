@@ -46,23 +46,32 @@ notebook-list:
 # conda environment
 # -----------------------------------------------------------------------------
 
-.PHONY: env-init
-env-init:
+.PHONY: env-init-conda
+env-init-conda:
 	@conda create --yes --copy --name "$(CONDA_ENV_NAME)" \
 		python=3.10.16 \
+		nvidia::cuda-toolkit=12.4.1 \
 		conda-forge::poetry=1.8.5
 
-.PHONY: env-create
-env-create:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" poetry install --no-root --no-directory
+.PHONY: env-init-poetry
+env-init-poetry:
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		poetry install --no-root --no-directory
+
+.PHONY: env-init-pip
+env-init-pip:
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		pip install --no-build-isolation flash-attn==2.7.3
 
 .PHONY: env-update
 env-update:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" poetry update
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		poetry update
 
 .PHONY: env-list
 env-list:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" poetry show
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		poetry show
 
 .PHONY: env-remove
 env-remove:
