@@ -79,11 +79,13 @@ env-remove:
 
 .PHONY: env-shell
 env-shell:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" bash
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		bash
 
 .PHONY: env-info
 env-info:
-	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" conda info
+	@conda run --no-capture-output --live-stream --name "$(CONDA_ENV_NAME)" \
+		conda info
 
 # -----------------------------------------------------------------------------
 # util
