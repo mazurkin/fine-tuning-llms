@@ -101,6 +101,10 @@ clean-data:
 clean-logs:
 	@find . -name '*.log' -type f -delete
 
+.PHONY: clean-book
+clean-book:
+	@cd "$(ROOT)/book" && git clean -d --force && git reset --hard
+
 .PHONY: clean
 clean: clean-logs clean-data
 
